@@ -1,2 +1,2 @@
 # notesPStar
-Notes on the Pololu 25K50. If you're willing to work with very little existing libraries, go for it. If not, rather use an AStar or Nano.
+Notes on the Pololu PStar 25K50. This repo was created while getting everything together to use a PStar I had lying around. Before committing to use this little board, first have a look at what the example code offers you. If you're willing to work with that and dabble on a low level with the PIC, go for it. If not, rather use an AStar or Nano that comes with the Arduino base of software libraries and support.
