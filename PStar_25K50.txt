@@ -1,0 +1,38 @@
+Website: https://www.pololu.com/product/3150
+1) Install the Pololu USB Bootloader Utility (p-load) for Windows [https://www.pololu.com/file/0J1125/p-load-2.3.0-win.msi] (1MB msi). 
+2) After you have compiled software for download and generated a .hex file, do the following:
+	a) Getting into bootloader mode
+		When the P-Star is in bootloader mode, the yellow LED should be on and the green LED should be
+		blinking.
+		The P-Star will go into bootloader mode if the RB6 line is high immediately after a reset. This will work
+		no matter what type of application is loaded on the P-Star.
+		Another option is to connect a bootloader button between VDD and RB6 and a reset button between
+		GND and MCLR as shown in the picture below, and reset the P-Star while you are holding down
+		the bootloader button. (see	Reset and Bootloader buttons.PNG)
+	b) Programming using p-load
+		Open a new command prompt and run a command of the form:
+			p-load -w HEXFILE
+		where HEXFILE is the full or relative path to the HEX file you compiled. When you run this command,
+		the output should look something like:
+
+			Device:        Pololu P-Star 45K50 Bootloader
+			Serial number: 00203525
+			Erasing flash...
+			Progress: |##########################################################| Done.
+			Erasing EEPROM...
+			Progress: |##########################################################| Done.
+			Writing flash...
+			Progress: |##########################################################| Done.
+			Sent command to restart device.
+			
+3) Creating a program
+	See https://github.com/pololu/p-star-examples
+	a) Start the MPLAB XPress IDE by opening this link: 	https://keycloak-che.mplab-xpresside.microchip.com/auth/realms/che/broker/microchip/login?session_code=qqlb3WBI0hoT6EEKMevFeIkOIacprRnR1DFp-YdULmc&client_id=che-public&tab_id=Oj5c2QKpT_Y
+	
+		Microchip pw Rudolf2010
+	
+	b) In the IDE's "File" menu, select "Import Project" and upload the new ZIP file.
+		You should see some source code on the right side of your browser window, and you should see the "Project" pane on the left side, which shows all the source and header files in the project.
+	c) 	Click the "Make and Program Device" button (the button with a green arrow pointing down). This will cause the IDE to compile the program and then download it to your computer as a HEX file.
+	
+	d) Once you have the HEX file, you can program it onto your P-Star as described in the "Programming using p-load" section of the P-Star user's guide.
